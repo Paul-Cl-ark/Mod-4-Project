@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import ToDoContainer from './Containers/ToDoContainer1'
-import ToDoForm from './Components/ToDoForm'
+import NavBar from './Components/NavBar'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        Welcome to our To-Do List
-        <ToDoContainer />
-        <ToDoForm />
+        <NavBar />
       </div>
     );
   }
