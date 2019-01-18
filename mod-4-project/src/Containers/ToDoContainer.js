@@ -5,8 +5,14 @@ class ToDoContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      toDos: []
+      toDos: [],
     }
+  }
+  changeViewToIndex = (editToDo) =>{
+    const newArray = [...this.state.toDos]
+    const indexOfeditToDo = newArray.indexOf(editToDo)
+    newArray[indexOfeditToDo] = editToDo
+    this.setState({toDos: newArray})
   }
 
   componentDidMount() {
@@ -17,7 +23,7 @@ class ToDoContainer extends Component {
 
   renderToDos = () => {
     const items = this.state.toDos
-    return items.map(toDo => <ToDoCard key={toDo.id} toDo={toDo} handleDelete={this.handleDelete}/>)
+    return items.map(toDo => <ToDoCard key={toDo.id} toDo={toDo} handleDelete={this.handleDelete} handleEdit={this.handleEdit} changeViewToIndex={this.changeViewToIndex}/>)
   }
 
   handleDelete = (toDo) => {
@@ -29,6 +35,8 @@ class ToDoContainer extends Component {
       method: "DELETE"
     })
   }
+
+
 
   render() {
     return (

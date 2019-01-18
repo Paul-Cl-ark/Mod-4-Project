@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
 import { Input, Menu, Segment } from 'semantic-ui-react'
-import ToDoContainer from '../Containers/ToDoContainer'
-import ToDoForm from './ToDoForm'
+import ToDoContainer from './ToDoContainer'
+import ToDoForm from '../Components/ToDoForm'
 
-export default class NavBar extends Component {
+export default class MenuContainer extends Component {
   state = { activeItem: 'home' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
 
   render() {
     const { activeItem } = this.state
     const componentToRender = () => {
       if (activeItem === 'home') {
-        return <div><h1>Welcome</h1> <p>This is a To Do app written in React.js</p></div>
+        return <div><h1>Welcome</h1> <p>This is Paul and Paolo's To-Do app written in React.js</p></div>
       } else if (activeItem === 'toDos') {
         return <ToDoContainer />
       } else {
-        return <ToDoForm />
+        return <ToDoForm changeViewToIndex={this.changeViewToIndex}/>
       }
     }
 

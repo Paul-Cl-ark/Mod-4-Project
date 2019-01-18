@@ -31,7 +31,8 @@ class ToDoForm extends React.Component {
         )
       })
         .then(r => console.log(r))
-        .then(toDos => window.alert('Success!'))
+        .then(toDos => this.props.changeViewToIndex())
+
   }
 
   render() {

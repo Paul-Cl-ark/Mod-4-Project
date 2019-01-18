@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react'
+import EditModal from './EditModal'
+
 
 class ToDoCard extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
+  
   render() {
     return (
       <div className="ToDoCard">
@@ -17,7 +15,7 @@ class ToDoCard extends Component {
           </Card.Content>
           <Card.Content extra>
             <Button className="ui red basic button" onClick={() => this.props.handleDelete(this.props.toDo)}>Delete</Button>
-            <Button className="ui teal basic button">Edit</Button>
+            <EditModal handleEdit={this.props.handleEdit} todo={this.props.toDo} changeViewToIndex={this.props.changeViewToIndex}/>
         </Card.Content>
       </Card>
       </div>
