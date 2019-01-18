@@ -18,7 +18,7 @@ class ToDoForm extends React.Component {
 
   handleSubmit = (event) => {
       event.preventDefault()
-      fetch('http://localhost:3000/to-dos', {
+      fetch('http://localhost:3000/api/v1/to_dos', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -30,7 +30,6 @@ class ToDoForm extends React.Component {
           }
         )
       })
-        .then(r => console.log(r))
         .then(toDos => this.props.changeViewToIndex())
 
   }

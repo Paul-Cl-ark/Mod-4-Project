@@ -20,7 +20,7 @@ class EditFormWithinModal extends React.Component {
 
   handleEdit = (editedToDo) =>{
 
-    fetch(`http://localhost:3000/to-dos/${editedToDo.id}`, {
+    fetch(`http://localhost:3000/api/v1/to_dos/${editedToDo.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"

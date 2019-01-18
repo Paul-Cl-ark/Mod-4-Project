@@ -16,7 +16,7 @@ class ToDoContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/to-dos')
+    fetch('http://localhost:3000/api/v1/to_dos')
       .then(r => r.json())
       .then(data => this.setState({toDos: data}))
   }
@@ -31,12 +31,10 @@ class ToDoContainer extends Component {
     const toDoToDelete = upDatedToDos.indexOf(toDo)
     upDatedToDos.splice(toDoToDelete, 1)
     this.setState({toDos: upDatedToDos})
-    fetch(`http://localhost:3000/to-dos/${toDo.id}`, {
+    fetch(`http://localhost:3000/api/v1/to_dos/${toDo.id}`, {
       method: "DELETE"
     })
   }
-
-
 
   render() {
     return (
