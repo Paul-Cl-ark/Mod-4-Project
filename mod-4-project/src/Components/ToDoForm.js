@@ -31,7 +31,7 @@ class ToDoForm extends React.Component {
         )
       })
         .then(r => console.log(r))
-        .then(toDos => this.props.changeViewToIndex())
+        .then(toDos => this.props.changeViewToAllTodos())
 
   }
 
