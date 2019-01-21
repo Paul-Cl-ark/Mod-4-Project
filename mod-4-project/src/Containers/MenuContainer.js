@@ -8,6 +8,10 @@ export default class MenuContainer extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+  changeViewToAllTodos =() => this.setState({ activeItem: 'toDos' })
+  changeViewToHome =() => this.setState({ activeItem: 'home' })
+
+
 
   render() {
     const { activeItem } = this.state
@@ -15,9 +19,9 @@ export default class MenuContainer extends Component {
       if (activeItem === 'home') {
         return <div><h1>Welcome</h1> <p>This is Paul and Paolo's To-Do app written in React.js</p></div>
       } else if (activeItem === 'toDos') {
-        return <ToDoContainer />
+        return <ToDoContainer changeViewToAllTodos={this.changeViewToAllTodos} changeViewToHome={this.changeViewToHome}/>
       } else {
-        return <ToDoForm changeViewToIndex={this.changeViewToIndex}/>
+        return <ToDoForm changeViewToAllTodos={this.changeViewToAllTodos}/>
       }
     }
 

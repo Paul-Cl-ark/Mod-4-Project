@@ -8,11 +8,14 @@ class ToDoContainer extends Component {
       toDos: [],
     }
   }
+
   changeViewToIndex = (editToDo) =>{
     const newArray = [...this.state.toDos]
     const indexOfeditToDo = newArray.indexOf(editToDo)
     newArray[indexOfeditToDo] = editToDo
     this.setState({toDos: newArray})
+    this.props.changeViewToHome()
+    this.props.changeViewToAllTodos()
   }
 
   componentDidMount() {
