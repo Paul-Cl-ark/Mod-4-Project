@@ -11,11 +11,6 @@
       "id": 3
     },
     {
-      "header": "Third",
-      "description": "Third",
-      "id": 4
-    },
-    {
       "header": "Fourth",
       "description": "Fourth",
       "id": 5
@@ -29,6 +24,6 @@
       "header": "a",
       "description": "ab",
       "id": 13
-    }
+    },
   ]
 }
