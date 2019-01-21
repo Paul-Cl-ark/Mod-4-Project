@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LogInForm from './LogInForm'
 import RegisterForm from './RegisterForm'
+import Divider from './Divider'
+
 
 class Home extends Component {
 
@@ -11,6 +13,7 @@ class Home extends Component {
         <p>This is Paul and Paolo's To-Do app written in React.js</p>
         <LogInForm />
         <RegisterForm />
+        <Divider />
       </div>
     );
   }

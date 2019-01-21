@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ToDoCard from '../Components/ToDoCard'
+import {Container} from 'semantic-ui-react'
 
 class ToDoContainer extends Component {
   constructor(props) {
@@ -26,6 +27,11 @@ class ToDoContainer extends Component {
 
   renderToDos = () => {
     const items = this.state.toDos
+    items.sort(function(a,b){
+  // Turn your strings into dates, and then subtract them
+  // to get a value that is either negative, positive, or zero.
+    return new Date(b["created_at"]) - new Date(a["created_at"]);
+    });
     return items.map(toDo => <ToDoCard key={toDo.id} toDo={toDo} handleDelete={this.handleDelete} handleEdit={this.handleEdit} changeViewToIndex={this.changeViewToIndex}/>)
   }
 
@@ -41,9 +47,11 @@ class ToDoContainer extends Component {
 
   render() {
     return (
-      <div className="ToDoContainer">
+      <Container>
+
         {this.renderToDos()}
-      </div>
+
+      </Container>
     );
   }
 }

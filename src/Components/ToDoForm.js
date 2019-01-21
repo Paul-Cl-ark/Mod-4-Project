@@ -1,5 +1,6 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form , Container} from 'semantic-ui-react'
+
 
 class ToDoForm extends React.Component {
   constructor(props) {
@@ -37,17 +38,20 @@ class ToDoForm extends React.Component {
 
   render() {
     return (
-      <div>
+
+        <Container>
         <h3>Add a To Do!</h3>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths="equal">
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Title" placeholder="Title" name="header" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Description" placeholder="Description" name="description" />
 
-          </Form.Group>
+          <Form.Input onChange={(event, data) => this.handleChange(data)} label="Title" placeholder="Title" name="header" />
+
+          <Form.TextArea onChange={(event, data) => this.handleChange(data)} label="Description" placeholder="Description" name="description" />
+
+
           <Form.Button>Submit</Form.Button>
         </Form>
-      </div>
+        </Container>
+      
     )
   }
 }

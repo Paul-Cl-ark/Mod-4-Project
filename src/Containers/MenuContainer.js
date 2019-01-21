@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Menu, Segment } from 'semantic-ui-react'
+import { Input, Menu, Segment, Container } from 'semantic-ui-react'
 import ToDoContainer from './ToDoContainer'
 import ToDoForm from '../Components/ToDoForm'
 import Home from '../Components/Home'
@@ -27,7 +27,7 @@ export default class MenuContainer extends Component {
     }
 
     return (
-      <div>
+      <Container>
         <Menu pointing>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           <Menu.Item
@@ -50,7 +50,7 @@ export default class MenuContainer extends Component {
         <Segment>
           {componentToRender()}
         </Segment>
-      </div>
+      </Container>
     )
   }
 }

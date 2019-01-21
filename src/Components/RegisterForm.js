@@ -46,8 +46,8 @@ class RegisterForm extends React.Component {
             <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="First name" placeholder="First name" name="firstName" />
             <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Last name" placeholder="Last name" name="lastName" />
             <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Email" placeholder="Email" name="email" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Password" placeholder="Password" name="password" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Confirm password" placeholder="Confirm password" name="passwordConfirmation" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Password" placeholder="Password" name="password" type='password' />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Confirm password" placeholder="Confirm password" name="passwordConfirmation" type='password' />
           </Form.Group>
           <Form.Button>Register</Form.Button>
         </Form>

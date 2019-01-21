@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
         body: JSON.stringify(
           {
             email: this.state.email,
-            password: this.state.password,
+            password: this.state.password
           }
         )
       })
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
             <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Email" placeholder="Email" name="email" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Password" placeholder="Password" name="password" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Password" placeholder="Password" name="password" type='password'/>
           </Form.Group>
           <Form.Button>Log in</Form.Button>
         </Form>
