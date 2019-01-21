@@ -41,8 +41,8 @@ class ToDoForm extends React.Component {
         <h3>Add a To Do!</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="header" placeholder="header" name="header" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="description" placeholder="description" name="description" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Title" placeholder="Title" name="header" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Description" placeholder="Description" name="description" />
 
           </Form.Group>
           <Form.Button>Submit</Form.Button>

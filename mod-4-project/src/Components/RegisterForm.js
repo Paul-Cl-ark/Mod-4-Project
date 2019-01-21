@@ -21,7 +21,7 @@ class RegisterForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch('http://localhost:3000/api/v1/register', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -43,11 +43,11 @@ class RegisterForm extends React.Component {
         <h3>Register</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="firstName" placeholder="First name" name="firstName" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="lastName" placeholder="Last name" name="lastName" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="email" placeholder="Email" name="email" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="password" placeholder="Password" name="password" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="passwordConfirmation" placeholder="Confirm password" name="passwordConfirmation" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="First name" placeholder="First name" name="firstName" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Last name" placeholder="Last name" name="lastName" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Email" placeholder="Email" name="email" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Password" placeholder="Password" name="password" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Confirm password" placeholder="Confirm password" name="passwordConfirmation" />
           </Form.Group>
           <Form.Button>Register</Form.Button>
         </Form>

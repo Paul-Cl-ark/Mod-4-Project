@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Input, Menu, Segment } from 'semantic-ui-react'
 import ToDoContainer from './ToDoContainer'
 import ToDoForm from '../Components/ToDoForm'
+import Home from '../Components/Home'
 
 export default class MenuContainer extends Component {
   state = { activeItem: 'home' }
@@ -17,7 +18,7 @@ export default class MenuContainer extends Component {
     const { activeItem } = this.state
     const componentToRender = () => {
       if (activeItem === 'home') {
-        return <div><h1>Welcome</h1> <p>This is Paul and Paolo's To-Do app written in React.js</p></div>
+        return <Home />
       } else if (activeItem === 'toDos') {
         return <ToDoContainer changeViewToAllTodos={this.changeViewToAllTodos} changeViewToHome={this.changeViewToHome}/>
       } else {

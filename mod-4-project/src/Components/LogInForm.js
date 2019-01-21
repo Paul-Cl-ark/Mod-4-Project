@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
 
   handleSubmit = (event) => {
       event.preventDefault()
-      fetch('http://localhost:3000/api/v1/users', {
+      fetch('http://localhost:3000/api/v1/login', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -38,8 +38,8 @@ class LoginForm extends React.Component {
         <h3>Log In</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="email" placeholder="Email" name="email" />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="password" placeholder="Password" name="password" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Email" placeholder="Email" name="email" />
+            <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Password" placeholder="Password" name="password" />
           </Form.Group>
           <Form.Button>Log in</Form.Button>
         </Form>
