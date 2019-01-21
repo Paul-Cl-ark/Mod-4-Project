@@ -1,2 +1,2 @@
-# Mod-4-Project
-A to-do app with full CRUD capabilities
+Written by Paolo Ventura & Paul Clark
+Flatiron mod-4 Project
