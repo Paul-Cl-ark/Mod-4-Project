@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Menu, Segment, Container } from 'semantic-ui-react'
+import { Input, Menu, Segment, Container, Button } from 'semantic-ui-react'
 import ToDoContainer from './ToDoContainer'
 import ToDoForm from '../Components/ToDoForm'
 import Home from '../Components/Home'
@@ -35,9 +35,7 @@ export default class MenuContainer extends Component {
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           {ifLoggedInShowFullMenu()}
           <Menu.Menu position='right'>
-            <Menu.Item>
-              <p>{this.props.user ? 'Hi ' + this.props.user.first_name : null}</p>
-            </Menu.Item>
+              {this.props.user ? <React.Fragment><Menu.Item> <Button size='small' compact color='blue' onClick={this.props.logOut}>Logout</Button> </Menu.Item><Menu.Item><p>Hi {this.props.user.first_name}</p></Menu.Item></React.Fragment>: null}
           </Menu.Menu>
         </Menu>
 
