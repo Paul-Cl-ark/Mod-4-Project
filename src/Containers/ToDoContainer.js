@@ -20,7 +20,10 @@ class ToDoContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/to_dos')
+    const token = localStorage.getItem('token')
+    fetch('http://localhost:3000/api/v1/to_dos', {
+      headers: {'Authorization': token}
+    })
       .then(r => r.json())
       .then(data => this.setState({toDos: data}))
   }
@@ -36,11 +39,13 @@ class ToDoContainer extends Component {
   }
 
   handleDelete = (toDo) => {
+    const token = localStorage.getItem('token')
     const upDatedToDos = [...this.state.toDos]
     const toDoToDelete = upDatedToDos.indexOf(toDo)
     upDatedToDos.splice(toDoToDelete, 1)
     this.setState({toDos: upDatedToDos})
     fetch(`http://localhost:3000/api/v1/to_dos/${toDo.id}`, {
+      headers: {'Authorization': token},
       method: "DELETE"
     })
   }

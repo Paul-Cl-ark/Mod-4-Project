@@ -18,16 +18,16 @@ export default class MenuContainer extends Component {
     const { activeItem } = this.state
     const componentToRender = () => {
       if (activeItem === 'home') {
-        return <Home />
+        return <Home logIn={this.props.logIn} />
       } else if (activeItem === 'toDos') {
-        return <ToDoContainer changeViewToAllTodos={this.changeViewToAllTodos} changeViewToHome={this.changeViewToHome}/>
+        return <ToDoContainer changeViewToAllTodos={this.changeViewToAllTodos} changeViewToHome={this.changeViewToHome} user={this.props.user} />
       } else {
-        return <ToDoForm changeViewToAllTodos={this.changeViewToAllTodos}/>
+        return <ToDoForm changeViewToAllTodos={this.changeViewToAllTodos} user={this.props.user} />
       }
     }
 
     return (
-      <Container>
+      <Container user={this.props.user}>
         <Menu pointing>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           <Menu.Item
@@ -42,7 +42,7 @@ export default class MenuContainer extends Component {
           />
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
+              <p>{this.props.user ? 'Hi ' + this.props.user.first_name : null}</p>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
