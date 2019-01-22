@@ -42,7 +42,7 @@ export default class MenuContainer extends Component {
           />
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
+              <p>{this.props.user ? 'Hi ' + this.props.user.first_name : null}</p>
             </Menu.Item>
           </Menu.Menu>
         </Menu>
