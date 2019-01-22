@@ -14,7 +14,7 @@ class ToDoCard extends Component {
           <Card.Description>{this.props.toDo.description}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Button compact inverted color='red' onClick={() => this.props.handleDelete(this.props.toDo)}>Delete</Button>
+            <Button size='small' compact inverted color='red' onClick={() => this.props.handleDelete(this.props.toDo)}>Delete</Button>
             <EditModal handleEdit={this.props.handleEdit} todo={this.props.toDo} changeViewToIndex={this.props.changeViewToIndex}/>
         </Card.Content>
       </Card>
