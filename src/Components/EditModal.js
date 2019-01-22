@@ -29,7 +29,7 @@ export default class ModalModalExample extends React.Component {
       <Image
         wrapped
         size='medium'
-        src='https://s3.amazonaws.com/tribeca_cms_production/uploads/article/header_marquee/51ffb757852862a12b000002/large_Editor_at_Large_grey-final.jpg'
+        src='https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455922/1dee4df1af48f1fa9e6bd50618b4fbc9-700.jpg'
       />
       <Modal.Description>
         <EditFormWithinModal todo={this.props.todo} handleClose={this.handleClose} changeViewToIndex={this.props.changeViewToIndex}/>

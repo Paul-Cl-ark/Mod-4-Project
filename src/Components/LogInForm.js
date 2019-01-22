@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Container } from 'semantic-ui-react'
 
 class LogInForm extends React.Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class LogInForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <h3>Log In</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
@@ -54,7 +54,7 @@ class LogInForm extends React.Component {
           </Form.Group>
           <Form.Button>Log in</Form.Button>
         </Form>
-      </div>
+      </Container>
     )
   }
 }

@@ -44,8 +44,8 @@ class EditFormWithinModal extends React.Component {
       <div>
         <Form onSubmit={()=>this.handleEdit(this.state)}>
           <Form.Group widths="equal">
-            <Form.Input onChange={(event, data) => this.handleChange(data)} label="header" placeholder="header" name="header" value={this.state.header} />
-            <Form.Input onChange={(event, data) => this.handleChange(data)} label="description" placeholder="description" name="description" value={this.state.description}/>
+            <Form.Input onChange={(event, data) => this.handleChange(data)} label="Title" placeholder="header" name="header" value={this.state.header} />
+            <Form.TextArea onChange={(event, data) => this.handleChange(data)} label="Description" placeholder="description" name="description" value={this.state.description}/>
           </Form.Group>
           <Form.Button>Submit</Form.Button>
         </Form>

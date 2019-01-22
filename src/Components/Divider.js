@@ -9,8 +9,15 @@ class DividerExampleVerticalForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      signUpClicked: false
+      signUpClicked: false,
+      registerFormSubmitted: false,
     }
+  }
+
+  handleRegisterFormSubmitted = () => {
+    this.setState({
+      registerFormSubmitted: true
+    })
   }
 
   handleChange = (data) => {
@@ -67,15 +74,19 @@ class DividerExampleVerticalForm extends React.Component {
     }
 
     const renderRegisterForm = () => {
-      return <RegisterForm />
+      return <RegisterForm handleRegisterFormSubmitted={this.handleRegisterFormSubmitted}/>
     }
     const renderLogInForm = () => {
-      return <LogInForm />
+      return <LogInForm logIn={this.props.logIn}/>
+    }
+
+    const ifElseRender = () =>{
+      if (this.state.registerFormSubmitted){return renderLogInForm()} else if (this.state.signUpClicked) { return renderRegisterForm()}else {return renderDivider()}
     }
 
     return(
       <Segment placeholder>
-      {this.state.signUpClicked ? renderRegisterForm() : renderDivider()}
+      {ifElseRender()}
       </Segment>
     )
   }

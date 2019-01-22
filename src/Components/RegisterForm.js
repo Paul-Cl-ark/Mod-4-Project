@@ -44,7 +44,10 @@ class RegisterForm extends React.Component {
     return (
       <div>
         <h3>Register</h3>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={(e)=>{
+            this.handleSubmit(e)
+            this.props.handleRegisterFormSubmitted()
+          }}>
           <Form.Group widths="equal">
             <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="First name" placeholder="First name" name="firstName" />
             <Form.Input onChange={(event, data) => this.handleChange(data)} fluid label="Last name" placeholder="Last name" name="lastName" />

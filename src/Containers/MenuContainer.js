@@ -35,7 +35,10 @@ export default class MenuContainer extends Component {
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           {ifLoggedInShowFullMenu()}
           <Menu.Menu position='right'>
-              {this.props.user ? <React.Fragment><Menu.Item> <Button size='small' compact color='blue' onClick={this.props.logOut}>Logout</Button> </Menu.Item><Menu.Item><p>Hi {this.props.user.first_name}</p></Menu.Item></React.Fragment>: null}
+              {this.props.user ? <React.Fragment><Menu.Item><p>Hi {this.props.user.first_name}</p></Menu.Item><Menu.Item> <Button size='small' compact color='blue' onClick={()=>{
+                this.props.logOut()
+                this.changeViewToHome()
+              }}>Logout</Button> </Menu.Item></React.Fragment>: null}
           </Menu.Menu>
         </Menu>
 
