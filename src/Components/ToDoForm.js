@@ -18,11 +18,13 @@ class ToDoForm extends React.Component {
   }
 
   handleSubmit = (event) => {
+      const token = localStorage.getItem('token')
       event.preventDefault()
       fetch('http://localhost:3000/api/v1/to_dos', {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Authorization': token
         },
         body: JSON.stringify(
           {
@@ -51,7 +53,7 @@ class ToDoForm extends React.Component {
           <Form.Button>Submit</Form.Button>
         </Form>
         </Container>
-      
+
     )
   }
 }

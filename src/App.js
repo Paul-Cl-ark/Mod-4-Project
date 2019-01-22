@@ -5,7 +5,7 @@ import MenuContainer from './Containers/MenuContainer'
 
 class App extends Component {
   state = {
-    user: {}
+    user: false
   }
 
   logIn = (user, token) => {
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   logOut = () => {
-    this.setState({ user: {} })
+    this.setState({ user: false })
     localStorage.removeItem('token')
   }
 

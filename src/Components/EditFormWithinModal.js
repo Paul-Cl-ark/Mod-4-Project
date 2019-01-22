@@ -19,11 +19,12 @@ class EditFormWithinModal extends React.Component {
 
 
   handleEdit = (editedToDo) =>{
-
+    const token = localStorage.getItem('token')
     fetch(`http://localhost:3000/api/v1/to_dos/${editedToDo.id}`, {
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': token
       },
       body: JSON.stringify(
         editedToDo
