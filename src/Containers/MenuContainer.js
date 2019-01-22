@@ -18,28 +18,22 @@ export default class MenuContainer extends Component {
     const { activeItem } = this.state
     const componentToRender = () => {
       if (activeItem === 'home') {
-        return <Home logIn={this.props.logIn} />
+        return <Home logIn={this.props.logIn} user={this.props.user} />
       } else if (activeItem === 'toDos') {
         return <ToDoContainer changeViewToAllTodos={this.changeViewToAllTodos} changeViewToHome={this.changeViewToHome} user={this.props.user} />
       } else {
         return <ToDoForm changeViewToAllTodos={this.changeViewToAllTodos} user={this.props.user} />
       }
     }
+    const ifLoggedInShowFullMenu = () => {
+    return this.props.user ? <React.Fragment><Menu.Item name='toDos' active={activeItem === 'toDos'} onClick={this.handleItemClick}/> <Menu.Item name='newToDo' active={activeItem === 'newToDo'} onClick={this.handleItemClick} /></React.Fragment> : null}
+
 
     return (
       <Container user={this.props.user}>
         <Menu pointing>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item
-            name='toDos'
-            active={activeItem === 'toDos'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='newToDo'
-            active={activeItem === 'newToDo'}
-            onClick={this.handleItemClick}
-          />
+          {ifLoggedInShowFullMenu()}
           <Menu.Menu position='right'>
             <Menu.Item>
               <p>{this.props.user ? 'Hi ' + this.props.user.first_name : null}</p>

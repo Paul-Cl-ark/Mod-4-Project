@@ -5,7 +5,7 @@ import MenuContainer from './Containers/MenuContainer'
 
 class App extends Component {
   state = {
-    user: false
+    user: false,
   }
 
   logIn = (user, token) => {
