@@ -1,12 +1,15 @@
 import React from 'react'
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+import RegisterForm from './RegisterForm'
+import LogInForm from './LogInForm'
 
 class DividerExampleVerticalForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      signUpClicked: false
     }
   }
 
@@ -44,9 +47,8 @@ class DividerExampleVerticalForm extends React.Component {
   }
 
   render() {
-    return(
-      <Segment placeholder>
-      <Grid columns={2} relaxed='very' stackable>
+    const renderDivider = () => {
+      return (<React.Fragment><Grid columns={2} relaxed='very' stackable>
         <Grid.Column>
           <Form onSubmit={this.handleSubmit}>
             <Form.Input icon='envelope outline' iconPosition='left' label='Email' placeholder='Email' name="email" onChange={(event, data) => this.handleChange(data)} />
@@ -57,12 +59,24 @@ class DividerExampleVerticalForm extends React.Component {
         </Grid.Column>
 
         <Grid.Column verticalAlign='middle'>
-          <Button content='Sign up' icon='signup' size='big' />
+          <Button content='Sign up' icon='signup' size='big' onClick={() => this.setState({signUpClicked: true})} />
         </Grid.Column>
       </Grid>
 
-      <Divider vertical>Or</Divider>
-    </Segment>
+      <Divider vertical>Or</Divider></React.Fragment>)
+    }
+
+    const renderRegisterForm = () => {
+      return <RegisterForm />
+    }
+    const renderLogInForm = () => {
+      return <LogInForm />
+    }
+
+    return(
+      <Segment placeholder>
+      {this.state.signUpClicked ? renderRegisterForm() : renderDivider()}
+      </Segment>
     )
   }
 }
