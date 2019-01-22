@@ -25,11 +25,22 @@ class LoginForm extends React.Component {
         },
         body: JSON.stringify(
           {
-            email: this.state.email,
-            password: this.state.password
+            user:
+              {
+                email: this.state.email,
+                password: this.state.password
+              }
           }
         )
       })
+      .then(r => r.json())
+      .then(data => {
+        if (data.error) {
+        alert(data.error)
+      } else {
+        this.props.logIn(data.user, data.token)
+      }
+    })
   }
 
   render() {

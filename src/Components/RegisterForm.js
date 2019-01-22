@@ -28,13 +28,16 @@ class RegisterForm extends React.Component {
       },
       body: JSON.stringify(
         {
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          email: this.state.email,
-          password: this.state.password,
+          user: {
+            first_name: this.state.firstName,
+            last_name: this.state.lastName,
+            email: this.state.email,
+            password: this.state.password,
+          }
         }
       )
     })
+    .then(resp => resp.json())
   }
 
   render() {

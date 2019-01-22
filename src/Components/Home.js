@@ -11,7 +11,7 @@ class Home extends Component {
       <div>
         <h1>Welcome</h1>
         <p>This is Paul and Paolo's To-Do app written in React.js</p>
-        <LogInForm />
+        <LogInForm logIn={this.props.logIn} />
         <RegisterForm />
         <Divider />
       </div>

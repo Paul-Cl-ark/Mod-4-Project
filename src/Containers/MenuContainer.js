@@ -18,7 +18,7 @@ export default class MenuContainer extends Component {
     const { activeItem } = this.state
     const componentToRender = () => {
       if (activeItem === 'home') {
-        return <Home />
+        return <Home logIn={this.props.logIn}/>
       } else if (activeItem === 'toDos') {
         return <ToDoContainer changeViewToAllTodos={this.changeViewToAllTodos} changeViewToHome={this.changeViewToHome}/>
       } else {
