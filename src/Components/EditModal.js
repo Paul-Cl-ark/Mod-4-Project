@@ -20,7 +20,7 @@ export default class ModalModalExample extends React.Component {
     return (
 
   <Modal
-    trigger={<Button onClick={this.handleOpen} className="ui teal button">Edit</Button>}
+    trigger={<Button onClick={this.handleOpen} inverted color='green' compact >Edit</Button>}
     open={this.state.modalOpen}
     onClose={this.handleClose}
     >
