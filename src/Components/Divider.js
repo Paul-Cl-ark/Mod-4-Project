@@ -55,13 +55,17 @@ class DividerExampleVerticalForm extends React.Component {
     })
   }
 
+  backToLogInForm = () => {
+    this.setState({signUpClicked: false})
+  }
+
   render() {
     const renderDivider = () => {
       return (<React.Fragment><Grid columns={2} relaxed='very' stackable>
         <Grid.Column>
           <Form onSubmit={this.handleSubmit}>
             <Form.Input icon='envelope outline' iconPosition='left' label='Email' placeholder='Email' name="email" onChange={(event, data) => this.handleChange(data)} />
-            <Form.Input icon='lock' iconPosition='left' label='Password' type='password' name="password" onChange={(event, data) => this.handleChange(data)} />
+            <Form.Input icon='lock' iconPosition='left' label='Password' type='password' name="password" placeholder='Password' onChange={(event, data) => this.handleChange(data)} />
 
             <Button content='Login' primary />
           </Form>
@@ -77,14 +81,14 @@ class DividerExampleVerticalForm extends React.Component {
     }
 
     const renderRegisterForm = () => {
-      return <RegisterForm handleRegisterFormSubmitted={this.handleRegisterFormSubmitted} logIn={this.props.logIn}/>
+      return <RegisterForm handleRegisterFormSubmitted={this.handleRegisterFormSubmitted} logIn={this.props.logIn} backToLogInForm={this.backToLogInForm}/>
     }
     const renderLogInForm = () => {
       return <LogInForm logIn={this.props.logIn}/>
     }
 
     const ifElseRender = () =>{
-      if (this.state.registerFormSubmitted){return renderLogInForm()} else if (this.state.signUpClicked) { return renderRegisterForm()}else {return renderDivider()}
+      if (this.state.signUpClicked) { return renderRegisterForm()}else {return renderDivider()}
     }
 
     return(
