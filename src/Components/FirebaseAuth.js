@@ -4,8 +4,8 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCn1CxgNJv4wMM2IVMMlxPX9Yzti_rvHCM",
-  authDomain: "mod4-project-6ac68.firebaseapp.com"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
 })
 
 class FirebaseAuth extends React.Component {
@@ -25,9 +25,9 @@ class FirebaseAuth extends React.Component {
 
  componentDidMount () {
    // gets validation from server
-   firebase.auth().onAuthStateChanged(firebaseUser => {
-     this.setState({user: firebaseUser})
-   })
+   // firebase.auth().onAuthStateChanged(firebaseUser => {
+   //   this.setState({user: firebaseUser})
+   // })
  }
 
  render() {
