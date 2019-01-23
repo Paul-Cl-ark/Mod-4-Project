@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
 import RegisterForm from './RegisterForm'
 import LogInForm from './LogInForm'
+import FirebaseAuth from './FirebaseAuth'
+
 
 class DividerExampleVerticalForm extends React.Component {
   constructor(props) {
@@ -63,6 +65,7 @@ class DividerExampleVerticalForm extends React.Component {
 
             <Button content='Login' primary />
           </Form>
+          <FirebaseAuth logIn={this.props.logIn}/>
         </Grid.Column>
 
         <Grid.Column verticalAlign='middle'>
