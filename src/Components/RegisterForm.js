@@ -37,7 +37,13 @@ class RegisterForm extends React.Component {
         }
       )
     })
-    .then(resp => resp.json())
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) {
+      alert(data.error)
+    } else {
+      this.props.logIn(data.user, data.token)
+    }})
   }
 
   render() {

@@ -77,7 +77,7 @@ class DividerExampleVerticalForm extends React.Component {
     }
 
     const renderRegisterForm = () => {
-      return <RegisterForm handleRegisterFormSubmitted={this.handleRegisterFormSubmitted}/>
+      return <RegisterForm handleRegisterFormSubmitted={this.handleRegisterFormSubmitted} logIn={this.props.logIn}/>
     }
     const renderLogInForm = () => {
       return <LogInForm logIn={this.props.logIn}/>
