@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from "firebase"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 
+
 firebase.initializeApp({
   apiKey: "AIzaSyCn1CxgNJv4wMM2IVMMlxPX9Yzti_rvHCM",
   authDomain: "mod4-project-6ac68.firebaseapp.com"

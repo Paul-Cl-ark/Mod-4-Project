@@ -10,6 +10,7 @@ class App extends Component {
     user: false,
   }
 
+  
 
   logIn = (user, token) => {
     this.setState({ user })
