@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import MenuContainer from './Containers/MenuContainer'
-require('dotenv').config()
+
+
+
 
 class App extends Component {
   state = {
     user: false,
   }
 
-
+  
 
   logIn = (user, token) => {
     this.setState({ user })
