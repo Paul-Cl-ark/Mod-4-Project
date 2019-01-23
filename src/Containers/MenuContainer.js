@@ -3,6 +3,7 @@ import { Input, Menu, Segment, Container, Button } from 'semantic-ui-react'
 import ToDoContainer from './ToDoContainer'
 import ToDoForm from '../Components/ToDoForm'
 import Home from '../Components/Home'
+import firebase from "firebase"
 
 export default class MenuContainer extends Component {
   state = { activeItem: 'home' }
@@ -36,6 +37,7 @@ export default class MenuContainer extends Component {
           {ifLoggedInShowFullMenu()}
           <Menu.Menu position='right'>
               {this.props.user ? <React.Fragment><Menu.Item><p>Hi {this.props.user.first_name}</p></Menu.Item><Menu.Item> <Button size='small' compact color='blue' onClick={()=>{
+                firebase.auth().signOut()
                 this.props.logOut()
                 this.changeViewToHome()
               }}>Logout</Button> </Menu.Item></React.Fragment>: null}
