@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import MenuContainer from './Containers/MenuContainer'
-
-
-
+import AdminPage from './Components/AdminPage'
 
 class App extends Component {
   state = {
     user: false,
   }
-
-  
 
   logIn = (user, token) => {
     this.setState({ user })
@@ -46,8 +43,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MenuContainer logIn={this.logIn} logOut={this.logOut} user={this.state.user}/>
-
+      <Switch>
+        <Route path='/admin' component={AdminPage}/>
+        <Route path='/' component={routerProps => <MenuContainer {...routerProps} logIn={this.logIn} logOut={this.logOut} user={this.state.user}/>}/>
+      </Switch>
       </div>
     );
   }

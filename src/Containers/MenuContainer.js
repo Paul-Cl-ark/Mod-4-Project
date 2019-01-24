@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
-import { Input, Menu, Segment, Container, Button } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
+
+import { Menu, Segment, Container, Button } from 'semantic-ui-react'
 import ToDoContainer from './ToDoContainer'
 import ToDoForm from '../Components/ToDoForm'
 import Home from '../Components/Home'
+import AdminPage from '../Components/AdminPage'
 import firebase from "firebase"
 
-export default class MenuContainer extends Component {
+class MenuContainer extends Component {
   state = { activeItem: 'home' }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   changeViewToAllTodos =() => this.setState({ activeItem: 'toDos' })
   changeViewToHome =() => this.setState({ activeItem: 'home' })
-
-
 
   render() {
     const { activeItem } = this.state
@@ -27,8 +28,11 @@ export default class MenuContainer extends Component {
       }
     }
     const ifLoggedInShowFullMenu = () => {
-    return this.props.user ? <React.Fragment><Menu.Item name='toDos' active={activeItem === 'toDos'} onClick={this.handleItemClick}/> <Menu.Item name='newToDo' active={activeItem === 'newToDo'} onClick={this.handleItemClick} /></React.Fragment> : null}
+    return this.props.user ? <React.Fragment><Menu.Item name='toDos' active={activeItem === 'toDos'} onClick={this.handleItemClick}/> <Menu.Item name='newToDo' active={activeItem === 'newToDo'} onClick={this.handleItemClick} /><Menu.Item><Link to={'/admin'}><Button size='small' compact color='blue'>Admin</Button></Link></Menu.Item> </React.Fragment> : null}
 
+    const handleAdminClick = (event) => {
+      this.props.history.push('./admin')
+    }
 
     return (
       <Container user={this.props.user}>
@@ -51,3 +55,5 @@ export default class MenuContainer extends Component {
     )
   }
 }
+
+export default MenuContainer
