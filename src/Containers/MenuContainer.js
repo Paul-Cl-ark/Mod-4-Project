@@ -28,7 +28,7 @@ class MenuContainer extends Component {
       }
     }
     const ifLoggedInShowFullMenu = () => {
-    return this.props.user ? <React.Fragment><Menu.Item name='toDos' active={activeItem === 'toDos'} onClick={this.handleItemClick}/> <Menu.Item name='newToDo' active={activeItem === 'newToDo'} onClick={this.handleItemClick} /><Menu.Item><Link to={'/admin'}><Button size='small' compact color='blue'>Admin</Button></Link></Menu.Item> </React.Fragment> : null}
+    return this.props.user ? <React.Fragment><Menu.Item name='toDos' active={activeItem === 'toDos'} onClick={this.handleItemClick}/> <Menu.Item name='newToDo' active={activeItem === 'newToDo'} onClick={this.handleItemClick} /><Menu.Item><Link to={'/admin'}><Button   color='blue'>Admin</Button></Link></Menu.Item> </React.Fragment> : null}
 
     const handleAdminClick = (event) => {
       this.props.history.push('./admin')
@@ -40,7 +40,7 @@ class MenuContainer extends Component {
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
           {ifLoggedInShowFullMenu()}
           <Menu.Menu position='right'>
-              {this.props.user ? <React.Fragment><Menu.Item><p>Hi {this.props.user.first_name}</p></Menu.Item><Menu.Item> <Button size='small' compact color='blue' onClick={()=>{
+              {this.props.user ? <React.Fragment><Menu.Item><p>Hi {this.props.user.first_name}</p></Menu.Item><Menu.Item> <Button size='massive' color='blue' compact onClick={()=>{
                 firebase.auth().signOut()
                 this.props.logOut()
                 this.changeViewToHome()
